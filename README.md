@@ -130,7 +130,7 @@ import (
 func ConnectDB(c echo.Context ) error{
 	// mysqlへの接続設定
 	// dbr.Open("mysql", "[mysql_username]:[mysql_passwd]@tcp( [接続先のmysqlコンテナのホストネーム] :3306)/[接続DB名]", nil)
-	conn, err := dbr.Open("mysql", "tomorrow:root@tcp(mysql:3306)/test_db", nil)
+	conn, err := dbr.Open("mysql", "username:passwd@tcp(127.0.0.1:3306)/test_db", nil)
 	if err != nil{
 		return err
 	}
@@ -171,7 +171,7 @@ curl -v POST -H "Content-Type: application/json" "http://localhost:3000/users" -
 
 ```go
 func PostUser(c echo.Context) error {
-	conn, err := dbr.Open("mysql", "tomorrow:root@tcp(mysql:3306)/test_db", nil)
+	conn, err := dbr.Open("mysql", "username:passwd@tcp(127.0.0.1:3306)/test_db", nil)
 	if err != nil{
 		return err
 	}
